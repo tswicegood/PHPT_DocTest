@@ -5,7 +5,7 @@
  *
  * <?php
  *     $sum = phpt_add(2, 2);
- *     echo $sum, "\n"
+ *     echo $sum, "\n";
  * ?>
  *
  * EXPECT:

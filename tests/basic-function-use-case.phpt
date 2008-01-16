@@ -21,8 +21,8 @@ $expected = "--TEST--\n" .
             "This function performs basic mathmatics\n" .
             "--FILE--\n" .
             "<?php\n" .
-            '    $sum = phpt_add(2, 2);' . "\n" .
-            '    echo $sum, "\n"' . "\n" .
+            '$sum = phpt_add(2, 2);' . "\n" .
+            'echo $sum, "\n";' . "\n" .
             "?>\n" .
             "===DONE===\n" .
             "--EXPECT--\n" .
@@ -30,7 +30,8 @@ $expected = "--TEST--\n" .
             "===DONE===";
 
 $actual = trim(file_get_contents(dirname(__FILE__) . '/support/tests/phpt_add-1.phpt'));
-//ensure($actual)->equals($expected);
+
+ensure($actual)->equals($expected);
 
 ?>
 ===DONE===

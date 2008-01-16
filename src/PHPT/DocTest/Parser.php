@@ -49,7 +49,7 @@ class PHPT_DocTest_Parser
 
         
         foreach ($case as $section => $contents) {
-            $this->_parsed_test_case .= '--' . $section . '--' . PHP_EOL . $contents . PHP_EOL;
+            $this->_parsed_test_case .= '--' . $section . '--' . PHP_EOL . trim($contents) . PHP_EOL;
             if ($section != 'TEST') {
                 $this->_parsed_test_case .= '===DONE===' . PHP_EOL;
             }
