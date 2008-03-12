@@ -25,7 +25,11 @@ class PHPT_DocTest_Generator
 
     public function generate($callback) 
     {
-        $reflection = new ReflectionFunction($callback);
+        if (function_exists($callback)) {
+            $reflection = new ReflectionFunction($callback);
+        } else {
+            $reflection = new ReflectionClass($callback);
+        }
         $docblock = new PHPT_DocTest_DocBlock($reflection->getDocComment());
         $parser = new PHPT_DocTest_Parser($docblock);
 

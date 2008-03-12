@@ -1,0 +1,11 @@
+--TEST--
+A simple class for testing DocTest parsing
+--FILE--
+<?php
+$class = new PHPTSomeSimpleClass();
+?>
+===DONE===
+--EXPECT--
+PHPTSomeSimpleClass::__construct was called
+===DONE===
+
