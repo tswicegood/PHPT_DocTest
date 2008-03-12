@@ -13,8 +13,14 @@ class PHPT_DocTest_Generator
 
     public function generateFromFile($file)
     {
+        $existing_functions = get_defined_functions();
         require_once $file;
-        $this->generate('phpt_add');
+        $newly_declared_functions = get_defined_functions();
+        $functions_to_test = array_diff(
+            $newly_declared_functions['user'],
+            $existing_functions['user']
+        );
+        array_map(array($this, 'generate'), $functions_to_test);
     }
 
     public function generate($callback) 

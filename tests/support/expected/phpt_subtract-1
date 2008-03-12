@@ -1,0 +1,11 @@
+--TEST--
+This function performs basic subtraction
+--FILE--
+<?php
+$result = phpt_subtract(4, 2);
+echo $result, "\n";
+?>
+===DONE===
+--EXPECT--
+2
+===DONE===

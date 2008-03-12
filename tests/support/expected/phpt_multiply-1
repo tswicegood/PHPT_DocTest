@@ -1,0 +1,11 @@
+--TEST--
+This function performs basic multiplication
+--FILE--
+<?php
+$result = phpt_multiply(2, 5);
+echo $result, "\n";
+?>
+===DONE===
+--EXPECT--
+10
+===DONE===
