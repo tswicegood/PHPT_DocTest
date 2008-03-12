@@ -1,0 +1,11 @@
+--TEST--
+This function performs basic mathmatics
+--FILE--
+<?php
+$sum = phpt_add(2, 2);
+echo $sum, "\n";
+?>
+===DONE===
+--EXPECT--
+4
+===DONE===

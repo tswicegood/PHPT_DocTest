@@ -17,17 +17,7 @@ $generator->generate('phpt_add');
 
 ensure(file_exists(dirname(__FILE__) . '/support/tests/phpt_add-1.phpt'))->equals(true);
 
-$expected = "--TEST--\n" .
-            "This function performs basic mathmatics\n" .
-            "--FILE--\n" .
-            "<?php\n" .
-            '$sum = phpt_add(2, 2);' . "\n" .
-            'echo $sum, "\n";' . "\n" .
-            "?>\n" .
-            "===DONE===\n" .
-            "--EXPECT--\n" .
-            "4\n" .
-            "===DONE===";
+$expected = file_get_contents(dirname(__FILE__) . '/expected_test');
 
 $actual = trim(file_get_contents(dirname(__FILE__) . '/support/tests/phpt_add-1.phpt'));
 
