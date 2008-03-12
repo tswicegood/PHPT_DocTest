@@ -13,3 +13,6 @@ if (!class_exists('PHPT_Framework')) {
 
 require dirname(__FILE__) . '/_remove-tests.inc';
 
+if (!defined('PHPT_DOCTEST_SUPPORT_PATH')) {
+    define('PHPT_DOCTEST_SUPPORT_PATH', realpath(dirname(__FILE__) . '/support'));
+}
