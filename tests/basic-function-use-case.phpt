@@ -17,7 +17,7 @@ $generator->generate('phpt_add');
 
 ensure(file_exists(dirname(__FILE__) . '/support/tests/phpt_add-1.phpt'))->equals(true);
 
-$expected = file_get_contents(dirname(__FILE__) . '/expected_test');
+$expected = file_get_contents(dirname(__FILE__) . '/support/expected/phpt_add-1');
 
 $actual = trim(file_get_contents(dirname(__FILE__) . '/support/tests/phpt_add-1.phpt'));
 
