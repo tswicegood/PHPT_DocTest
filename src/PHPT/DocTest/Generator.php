@@ -11,6 +11,12 @@ class PHPT_DocTest_Generator
         $this->_test_path = $test_path;
     }
 
+    public function generateFromFile($file)
+    {
+        require_once $file;
+        $this->generate('phpt_add');
+    }
+
     public function generate($callback) 
     {
         $reflection = new ReflectionFunction($callback);
