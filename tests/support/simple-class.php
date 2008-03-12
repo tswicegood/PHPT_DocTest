@@ -3,9 +3,9 @@
 /**
  * A simple class for testing DocTest parsing
  *
- * <?php
+ * <code>
  *     $class = new PHPTSomeSimpleClass();
- * ?>
+ * </code>
  * EXPECT:
  * PHPTSomeSimpleClass::__construct was called
  */ 
