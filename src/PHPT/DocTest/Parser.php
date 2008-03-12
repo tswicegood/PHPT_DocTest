@@ -32,14 +32,19 @@ class PHPT_DocTest_Parser
                 continue;
             }
             
-            if ($cursor == 0 && $line == '<?php') {
+            if ($cursor == 0 && ($line == '<code>' || $line == '<?php')) {
                 ++$cursor;
+                if ($line == '<code>') {
+                    $line = '<?php';
+                }
             } elseif ($cursor == 1 && substr($line, 0, 6) == 'EXPECT') {
                 ++$cursor;
                 $name = rtrim($line, ':');
                 $cursors[] = $name;
                 $case[$cursors[$cursor]] = '';
                 continue;
+            } elseif ($cursor == 1 && $line == '</code>') {
+                $line = '?>';
             }
             
             $case[$cursors[$cursor]] .= $line . PHP_EOL;
