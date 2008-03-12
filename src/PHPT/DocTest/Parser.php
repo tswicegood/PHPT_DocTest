@@ -5,7 +5,7 @@ class PHPT_DocTest_Parser
     private $_docblock = '';
     private $_parsed_test_case = '';
 
-    public function __construct($docblock)
+    public function __construct(PHPT_DocTest_DocBlock $docblock)
     {
         $this->_docblock = $docblock;
         $this->_parseDocBlock();
@@ -13,9 +13,6 @@ class PHPT_DocTest_Parser
 
     private function _parseDocBlock()
     {
-        $cleaned = preg_replace('/^\/\*\*| ?\*\/| ?\* ?/', '', $this->_docblock);
-        $lines = explode(PHP_EOL, $cleaned);
-
         $case = array(
             'TEST' => '',
             'FILE' => '',
@@ -28,6 +25,7 @@ class PHPT_DocTest_Parser
 
         $cursor = 0;
 
+        $lines = $this->_docblock->getLines();
         foreach ($lines as $line) {
             $line = trim($line);
             if (empty($line)) {

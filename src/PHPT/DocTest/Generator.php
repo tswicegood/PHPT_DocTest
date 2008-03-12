@@ -14,7 +14,8 @@ class PHPT_DocTest_Generator
     public function generate($callback) 
     {
         $reflection = new ReflectionFunction($callback);
-        $parser = new PHPT_DocTest_Parser($reflection->getDocComment());
+        $docblock = new PHPT_DocTest_DocBlock($reflection->getDocComment());
+        $parser = new PHPT_DocTest_Parser($docblock);
 
         file_put_contents($this->_test_path . '/' . $callback . '-1.phpt', (string)$parser);
     }
