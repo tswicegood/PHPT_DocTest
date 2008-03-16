@@ -50,7 +50,10 @@ class PHPT_DocTest_Parser
             $case[$cursors[$cursor]] .= $line . PHP_EOL;
         }
 
-        
+        if (empty($case['FILE'])) {
+            throw new PHPT_DocTest_Parser_InvalidDocTestException();
+        }
+
         foreach ($case as $section => $contents) {
             $this->_parsed_test_case .= '--' . $section . '--' . PHP_EOL . trim($contents) . PHP_EOL;
             if ($section != 'TEST') {
