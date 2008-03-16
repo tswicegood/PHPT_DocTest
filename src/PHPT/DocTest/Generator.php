@@ -30,10 +30,19 @@ class PHPT_DocTest_Generator
         } else {
             $reflection = new ReflectionClass($callback);
         }
-        $docblock = new PHPT_DocTest_DocBlock($reflection->getDocComment());
+        $docblock = $this->_createDocBlock($reflection);
         $parser = new PHPT_DocTest_Parser($docblock);
 
         file_put_contents($this->_test_path . '/' . $callback . '-1.phpt', (string)$parser);
+    }
+
+    private function _createDocBlock($reflection)
+    {
+        $raw = $reflection->getDocComment();
+        if (empty($raw)) {
+            throw new PHPT_DocTest_Generator_NoDocblockException();
+        }
+        return new PHPT_DocTest_DocBlock($raw);
     }
 }
 
